@@ -1,0 +1,2 @@
+# Powershel
+Avoid diagnostic lines
