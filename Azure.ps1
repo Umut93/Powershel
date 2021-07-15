@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param (
     $SolutionFolder
 )
@@ -18,7 +18,7 @@ if($IsValid) {
 
 $regexExcludeFolders="bin|obj|Properties|BuildFiles|Service References|packages";
  
-$diagnostics = Get-ChildItem -Path $path -Exclude BuildFiles,'Install Packages',packages,*.sln,*.md -Recurse | Where-Object {($_.FullName -notmatch $regexExcludeFolders) -and $_.Extension -eq ".cs"} | foreach {Select-String -Path $_.FullName -Pattern 'System.Diagnostics.Debugger.Launch()'} | Where-Object {$_.Line -inotmatch "//"}
+$diagnostics = Get-ChildItem -Path $path -Exclude BuildFiles,'Install Packages',packages,*.sln,*.md -Recurse | Where-Object {($_.FullName -notmatch $regexExcludeFolders) -and $_.Extension -eq ".cs"} | foreach {Select-String -Path $_.FullName -Pattern 'System.Diagnostics.Debugger.Launch()'}
 
 Write-Host "##[debug] Looking for diagnostics lines in this path: $path";
 
@@ -43,7 +43,7 @@ Write-Host "##[warning] This directory $path does not exists. Configure the righ
 }
 else 
 {
-Write-host "##[warning] No soultion folder name was found after this path 'E:\D\5.0\Source\. The provided value is empty. "
+Write-host "##[warning] No soultion folder name was found after this path D:\a\1\s\5.0\Source\. The provided value is empty."
 }
 
 
