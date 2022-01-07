@@ -1,2 +1,2 @@
-# Powershel
+# Powershell
 Avoid diagnostic lines
